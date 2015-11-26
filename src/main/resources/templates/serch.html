@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>検索画面</h1>
+	<h2>IDから検索する</h2>
+    <form action="#" th:action="@{/serchById}" method="post">
+        <p>ID: <input type="text" name="id" /></p>
+        <p><input type="submit" value="検索" /> <input type="reset" value="Reset" /></p>
+    </form>
+	<h2>名前から検索する</h2>
+        <form action="#" th:action="@{/serchByName}" method="post">
+        <p>ID: <input type="text" name="name" /></p>
+        <p><input type="submit" value="検索" /> <input type="reset" value="Reset" /></p>
+    </form>
+    <p>検索結果</p>
+    <p>――――――――――――――――――――</p>
+    <p th:text="${serchData}"></p>
+    <p>――――――――――――――――――――</p>
+    <a href="/input">入力画面</a>
+    <a href="/">トップ画面</a>
+</body>
+</html>
