@@ -30,7 +30,12 @@ repositories {
 // 依存関係(必要なライブラリを引っ張ってくる)
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
+    
+    //　テスト
     testCompile('org.springframework.boot:spring-boot-starter-test') 
+    
+    //　ログイン関係の実装に必要
+    compile("org.springframework.boot:spring-boot-starter-security")
     
     // テンプレートエンジン
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')

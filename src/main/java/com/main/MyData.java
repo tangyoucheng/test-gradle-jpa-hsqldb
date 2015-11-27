@@ -1,5 +1,6 @@
 /**
  * エンティティクラス
+ * 
  */
 package com.main;
 
