@@ -17,7 +17,7 @@ apply plugin: 'spring-boot'
 
 jar {
 	// 成果物の名前
-    baseName = 'test' 
+    baseName = 'test-gradle-jpa-postgresql' 
     version = '0.0.1-SNAPSHOT'
 }
 sourceCompatibility = 1.8
@@ -45,7 +45,6 @@ dependencies {
     
     // データベース
     runtime('org.hsqldb:hsqldb')
-    //runtime('org.postgresql:postgresql')
 }
 
 eclipse {

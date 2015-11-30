@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 
+@SuppressWarnings("deprecation")
 @Configuration
 @EnableWebMvcSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -20,9 +21,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/", "/index", "/input").permitAll() // 認証無しでアクセスできるパスを指定する。
-				.anyRequest().authenticated().and().formLogin().loginPage("/login") // ログインフォームのパスを指定する(指定しない場合、デフォルトログインページが表示される)。
-				.permitAll().and().logout().logoutUrl("/logout") // ログアウトページ
+		http
+			.authorizeRequests()
+				.antMatchers("/", "/index", "/input").permitAll() // 認証無しでアクセスできるパスを指定する。
+				.anyRequest()
+				.authenticated()
+				.and()
+			.formLogin()
+				.loginPage("/login") // ログインフォームのパスを指定する(指定しない場合、デフォルトログインページが表示される)。
+				.permitAll()
+				.and()
+			.logout()
+				.logoutUrl("/logout") // ログアウトページ
 				.logoutSuccessUrl("/index") // ログアウト成功時の遷移先ハスを指定する(指定しない場合、ログインページが表示される)。
 				.permitAll();
 	}
